@@ -1,3 +1,6 @@
+import math
+
+
 class Solution251002:  # ! WRONG
     def gcdOfStrings(self, str1: str, str2: str) -> str:
         result = ""
@@ -25,6 +28,18 @@ class Solution251002:  # ! WRONG
                 y += 1
             result = pre if not quit else ""
         return result
+
+
+class Solution251005:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        len1, len2 = len(str1), len(str2)
+        gcd_len = math.gcd(len1, len2)
+        gcd_string = str1[:gcd_len]
+        if str1 == gcd_string * (len1 // gcd_len) and str2 == gcd_string * (
+            len2 // gcd_len
+        ):
+            return gcd_string
+        return ""
 
 
 class SolutionLeetCode:
