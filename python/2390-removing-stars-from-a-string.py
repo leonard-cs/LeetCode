@@ -13,3 +13,14 @@ class Solution251004:  # ! WRONG and not clean
             i -= 1
         result.reverse()
         return "".join(result)
+
+
+class Solution201006:
+    def removeStars(self, s: str) -> str:
+        result = []
+        for c in s:
+            if c == "*":
+                result.pop()
+            else:
+                result.append(c)
+        return "".join(result)
