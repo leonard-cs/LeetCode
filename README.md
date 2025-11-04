@@ -1,4 +1,12 @@
-# LeetCode
+# LeetCode Notes
+
+## Table of Contents
+- [Python Data Structures](#python-data-structures)
+    - [Dictionaries (Hash Maps)](#dictionaries-hash-maps)
+- [Python Tips](#python-tips)
+    - [Sorting](#sorting)
+    - [Counter](#counter)
+    - [Bit Manipulation](#bit-manipulation)
 
 ## Python Data Structures
 ### Arrays / Lists
@@ -7,7 +15,7 @@
 ### Queues
 ### Heaps
 
-### Hash Maps (Dictionaries)
+### Dictionaries (Hash Maps)
 #### 1. Creating a Dictionary
 ```python
 empty_dict = {}
@@ -115,3 +123,11 @@ You can add (+), subtract (-), intersect (&), or unionize (|) Counter objects.
 ```python
 result = counter1 + counter2
 ```
+### Bit Manipulation
+You can perform bitwise operations in Python using `&` (AND), `|` (OR), `^` (XOR), `~` (NOT), `<<` (left shift), and `>>` (right shift) on integers.
+#### Printing in Binary
+- `bin(n)`: Returns the binary representation with a "0b" prefix.
+- `bin(n)[2:]`: Removes the "0b" prefix.
+- `format(n, 'b')`: Provides a binary representation without the "0b" prefix.
+- `format(n, '08b')`: Pads the binary representation to a fixed width (e.g., 8 bits).
+- `f-string (f"{n:b}")`: A convenient way to get the binary representation in Python 3.6 and later.
