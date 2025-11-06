@@ -30,6 +30,9 @@ my_dict = {
     'age': 25,
     'city': 'New York'
 }
+
+from collections import defaultdict
+count = defaultdict(int)  # int → default 0; list → default []
 ```
 #### 2. Accessing Dictionary Values
 ```python
@@ -123,6 +126,7 @@ while tasks:
     priority, task = heapq.heappop(tasks)
     print(priority, task)
 ```
+
 ### Sorted List (via `bisect` or `sortedcontainers`)
 #### `bisect` module — standard library
 ```python
@@ -139,11 +143,33 @@ pip install sortedcontainers
 ```python
 from sortedcontainers import SortedList
 
-slist = SortedList([5, 1, 3])
-print(slist)           # SortedList([1, 3, 5])
-slist.add(2)
-print(slist)           # SortedList([1, 2, 3, 5])
+slist = SortedList(["apple", "kiwi", "banana"], key=len)
+slist.add("fig")
+slist.remove("banana")
+print(slist)
+# → SortedList(['fig', 'kiwi', 'apple'], key=<built-in function len>)
 ```
+**Common Operations:**
+| Operation                                | Description                                              | Time Complexity                                                   | Example                      |
+| ---------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------- |
+| **`add(x)`**                             | Insert an element in sorted order                        | **O(log n)**                                                      | `slist.add(10)`              |
+| **`remove(x)`**                          | Remove a single element (raises `ValueError` if missing) | **O(log n)** (search) + **O(n)** (shifting) = **O(n)** worst-case | `slist.remove(10)`           |
+| **`discard(x)`**                         | Same as remove, but no error if not found                | **O(n)** worst-case                                               | `slist.discard(10)`          |
+| **`pop(i=-1)`**                          | Remove and return element at index `i`                   | **O(log n)** (to find block) + **O(1)** (within block)            | `slist.pop()`                |
+| **`__getitem__(i)`**                     | Get element by index                                     | **O(log n)**                                                      | `x = slist[2]`               |
+| **`__setitem__`**                        | Not supported (immutable order)                          | –                                                                 | –                            |
+| **`__delitem__(i)`**                     | Delete element at index                                  | **O(log n)** (to find) + **O(1)** (to delete)                     | `del slist[0]`               |
+| **`__contains__(x)`**                    | Membership test (binary search)                          | **O(log n)**                                                      | `if x in slist:`             |
+| **`index(x)`**                           | Find index of element                                    | **O(log n)**                                                      | `pos = slist.index(10)`      |
+| **`bisect_left(x)` / `bisect_right(x)`** | Find insertion point                                     | **O(log n)**                                                      | `pos = slist.bisect_left(5)` |
+| **`count(x)`**                           | Count occurrences                                        | **O(log n)**                                                      | `slist.count(5)`             |
+| **`update(iterable)`**                   | Add multiple elements                                    | **O(k log n)** where k = len(iterable)                            | `slist.update([1, 3, 2])`    |
+| **`clear()`**                            | Remove all elements                                      | **O(1)**                                                          | `slist.clear()`              |
+| **`__len__()`**                          | Get number of elements                                   | **O(1)**                                                          | `len(slist)`                 |
+| **`__iter__()`**                         | Iterate over elements                                    | **O(n)**                                                          | `for x in slist:`            |
+| **`copy()`**                             | Shallow copy                                             | **O(n)**                                                          | `slist.copy()`               |
+
+
 ### `SortedDict` and `SortedSet` (from `sortedcontainers`)
 ```python
 from sortedcontainers import SortedDict, SortedSet
