@@ -3,6 +3,12 @@
 ## Table of Contents
 - [Python Data Structures](#python-data-structures)
     - [Dictionaries (Hash Maps)](#dictionaries-hash-maps)
+- [Python Sorted Data Structures](#python-sorted-data-structures)
+    - [Heap (Heap Queue)](#heap-heap-queue)
+    - [Priority Queue](#priority-queue)
+    - [Sorted List](#sorted-list-via-bisect-or-sortedcontainers)
+    - [`SortedDict` and `SortedSet`](#sorteddict-and-sortedset-from-sortedcontainers)
+    - [Binary Search Trees / AVL / Red-Black Trees](#binary-search-trees--avl--red-black-trees)
 - [Python Tips](#python-tips)
     - [Sorting](#sorting)
     - [Counter](#counter)
@@ -13,7 +19,6 @@
 ### Linked Lists
 ### Stacks
 ### Queues
-### Heaps
 
 ### Dictionaries (Hash Maps)
 #### 1. Creating a Dictionary
@@ -83,7 +88,75 @@ sorted_dict = dict(sorted(my_dict.items(), key=lambda x: x[1]))
 ### Sets
 ### Trees
 ### Graphs
-### Priority Queues (using Heaps)
+
+## Python Sorted Data Structures
+### Heap (Heap Queue)
+```python
+import heapq
+
+numbers = [5, 3, 8, 1, 2]
+heapq.heapify(numbers)     # converts list into a heap
+print(numbers)             # [1, 2, 8, 3, 5] (heap order, not sorted order)
+
+heapq.heappush(numbers, 0)
+print(numbers)             # [0, 1, 8, 3, 5, 2]
+
+smallest = heapq.heappop(numbers)
+print(smallest)            # 0
+```
+**Key functions:**
+- `heapify(list)` – turn list into a heap.
+- `heappush(heap, item)` – push new item.
+- `heappop(heap)` – pop smallest item.
+- `nlargest(n, heap)` / `nsmallest(n, heap)` – get top n elements.
+### Priority Queue
+A priority queue can be implemented using `heapq` or `queue.PriorityQueue`.
+```python
+import heapq
+
+tasks = []
+heapq.heappush(tasks, (2, "write code"))
+heapq.heappush(tasks, (1, "fix bugs"))
+heapq.heappush(tasks, (3, "test program"))
+
+while tasks:
+    priority, task = heapq.heappop(tasks)
+    print(priority, task)
+```
+### Sorted List (via `bisect` or `sortedcontainers`)
+#### `bisect` module — standard library
+```python
+import bisect
+
+nums = [1, 3, 5, 7]
+bisect.insort(nums, 4)   # insert while keeping order
+print(nums)              # [1, 3, 4, 5, 7]
+```
+#### `sortedcontainers` library — third-party (very efficient)
+```bash
+pip install sortedcontainers
+```
+```python
+from sortedcontainers import SortedList
+
+slist = SortedList([5, 1, 3])
+print(slist)           # SortedList([1, 3, 5])
+slist.add(2)
+print(slist)           # SortedList([1, 2, 3, 5])
+```
+### `SortedDict` and `SortedSet` (from `sortedcontainers`)
+```python
+from sortedcontainers import SortedDict, SortedSet
+
+sset = SortedSet([5, 3, 1])
+print(sset)             # SortedSet([1, 3, 5])
+
+sdict = SortedDict({"b": 2, "a": 1})
+print(sdict)            # SortedDict({'a': 1, 'b': 2})
+```
+### Binary Search Trees / AVL / Red-Black Trees
+- `bintrees` (`pip install bintrees`)
+- `binarytree` (for visualization)
 
 ## Python Tips
 ### Sorting 
