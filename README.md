@@ -26,7 +26,27 @@ reversed_list = list(reversed(my_list))
 
 ### Linked Lists
 ### Stacks
+#### 1. Using Python List (Built-in Stack)
+#### 2. Using `collections.deque` for a More Efficient Stack
+
 ### Queues
+#### 1. 2. Using `collections.deque` (Efficient)
+#### 2. Using `queue.Queue` for Thread-Safe Queues
+
+### Double-ended Queue `deque`
+```python
+from collections import deque
+
+# Create an empty deque
+d = deque()
+```
+- `append(item)`: Adds an item to the right end of the deque.
+- `appendleft(item)`: Adds an item to the left end of the deque.
+- `pop()`: Removes and returns the item from the right end.
+- `popleft()`: Removes and returns the item from the left end.
+- `extend(iterable)`: Adds all items from the iterable to the right end.
+- `extendleft(iterable)`: Adds all items from the iterable to the left end (note: it adds items in reverse order).
+- `rotate(n)`: Rotates the deque by n steps. Positive n rotates right, negative n rotates left.
 
 ### Dictionaries (Hash Maps)
 #### 1. Creating a Dictionary
