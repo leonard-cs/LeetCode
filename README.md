@@ -2,6 +2,7 @@
 
 ## Table of Contents
 - [Python Data Structures](#python-data-structures)
+    - [Lists](#lists)
     - [Dictionaries (Hash Maps)](#dictionaries-hash-maps)
 - [Python Sorted Data Structures](#python-sorted-data-structures)
     - [Heap (Heap Queue)](#heap-heap-queue)
@@ -15,7 +16,14 @@
     - [Bit Manipulation](#bit-manipulation)
 
 ## Python Data Structures
-### Arrays / Lists
+### Lists
+#### Reverse a List
+```python
+my_list.reverse()              # in-place
+reversed_list = my_list[::-1]  # creates a new list
+reversed_list = list(reversed(my_list))
+```
+
 ### Linked Lists
 ### Stacks
 ### Queues
