@@ -218,6 +218,7 @@ print(sdict)            # SortedDict({'a': 1, 'b': 2})
 # Sort by age (ascending), then by salary (descending)
 sorted_people_reverse = sorted(people, key=lambda p: (p.age, -p.salary))
 ```
+
 ### `Counter`
 #### 1. Creating a Counter
 ```python
@@ -236,6 +237,8 @@ print(counter['z'])  # Output: 0 (If the element does not exist, it returns 0)
 ```python
 # Example: Get the 2 most common elements
 most_common = counter.most_common(2)
+# Example: Delete an element (key) from the Counter
+del counter['apple']
 # Example: Get all elements in the Counter
 elements = list(counter.elements())
 # Example: Update the counter with new data
@@ -250,6 +253,7 @@ You can add (+), subtract (-), intersect (&), or unionize (|) Counter objects.
 ```python
 result = counter1 + counter2
 ```
+
 ### Bit Manipulation
 You can perform bitwise operations in Python using `&` (AND), `|` (OR), `^` (XOR), `~` (NOT), `<<` (left shift), and `>>` (right shift) on integers.
 #### Printing in Binary
