@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution251115_1:  #! Too naive
+class Solution251115_1:  #! Too naive O(q * m*m) where q = len(queries), m = size of query
     def rangeAddQueries(self, n: int, queries: List[List[int]]) -> List[List[int]]:
         mat: List[List[int]] = [[0 for _ in range(n)] for _ in range(n)]
         for query in queries:
@@ -11,7 +11,7 @@ class Solution251115_1:  #! Too naive
         return mat
 
 
-class SolutionNeetCode:
+class SolutionNeetCode:  #* O(q + n*n)
     def rangeAddQueries(self, n: int, queries: List[List[int]]) -> List[List[int]]:
         prefix: List[List[int]] = [[0] * (n + 1) for _ in range(n + 1)]
         for x1, y1, x2, y2 in queries:
