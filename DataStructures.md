@@ -17,6 +17,18 @@
 
 ## Python Data Structures
 ### Lists
+#### Adding Elements
+```python
+fruits.append("orange")
+fruits.insert(1, "grape")
+```
+#### Removing Elements
+```python
+fruits.remove("banana")
+popped_item = fruits.pop()
+popped_item = fruits.pop(1)  # Removing an element by index
+print(popped_item)
+```
 #### Reverse a List
 ```python
 my_list.reverse()              # in-place
