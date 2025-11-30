@@ -3,6 +3,9 @@
 ## Table of Contents
 - [Python Data Structures](#python-data-structures)
     - [Lists](#lists)
+    - [Stacks](#stacks)
+    - [Queues](#queues)
+    - [Deque](#double-ended-queue-deque)
     - [Dictionaries (Hash Maps)](#dictionaries-hash-maps)
 - [Python Sorted Data Structures](#python-sorted-data-structures)
     - [Heap (Heap Queue)](#heap-heap-queue)
