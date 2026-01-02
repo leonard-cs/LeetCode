@@ -7,6 +7,7 @@
     - [Queues](#queues)
     - [Deque](#double-ended-queue-deque)
     - [Dictionaries (Hash Maps)](#dictionaries-hash-maps)
+    - [Sets](#sets)
 - [Python Sorted Data Structures](#python-sorted-data-structures)
     - [Heap (Heap Queue)](#heap-heap-queue)
     - [Priority Queue](#priority-queue)
@@ -132,6 +133,21 @@ sorted_dict = dict(sorted(my_dict.items(), key=lambda x: x[1]))
 ```
 
 ### Sets
+```python
+# Creating an empty set
+my_set = set()
+
+# Add an element to a set
+my_set.add(5)
+
+# Remove an element from a set
+my_set.remove(3)    # raises error if element doesn't exist
+my_set.discard(3)   # no error if element doesn't exist
+my_set.pop()        # remove and return an arbitrary element (useful for pop operation)
+
+my_set.clear()      # Clear all elements from a set
+```
+
 ### Trees
 ### Graphs
 
