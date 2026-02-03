@@ -46,7 +46,7 @@ reversed_list = list(reversed(my_list))
 #### 2. Using `collections.deque` for a More Efficient Stack
 
 ### Queues
-#### 1. 2. Using `collections.deque` (Efficient)
+#### 1. Using `collections.deque` (Efficient)
 #### 2. Using `queue.Queue` for Thread-Safe Queues
 
 ### Double-ended Queue `deque`
