@@ -3,6 +3,9 @@
 ## Table of Contents
 - [Arrays](#arrays)
 - [List](#list)
+  - [Java List → Array](#java-list--array)
+    - [Primitive Array (`int[]`)](#primitive-array-int)
+    - [To Typed Array](#to-typed-array)
 - Map
   - [HashMap](#hashmap)
 - Set
@@ -60,6 +63,17 @@ Object[] array = list.toArray();
 ```java
 System.out.println(list);  // Prints list in [1, 2] format
 ```
+### Java List → Array
+#### Primitive Array (`int[]`)
+```java
+int[] arr = list.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
+```
+#### To Typed Array
+```java
+Integer[] arr = list.toArray(new Integer[0]);
+```
 
 ### List Implementations
 Java provides several types of lists. Here are a few examples:
@@ -86,6 +100,49 @@ Set<Integer> set = new HashSet<>();
 set.add(1);
 set.add(2);
 set.add(3);
+```
+
+## Deque
+### ArrayDeque
+#### Initializing
+```java
+import java.util.Deque;
+import java.util.ArrayDeque;
+Deque<Integer> dq = new ArrayDeque<>();
+```
+
+#### Common Operations
+```java
+dq.addFirst(10);   // throws exception if fails
+dq.offerFirst(10); // returns false if fails
+dq.addLast(20);
+dq.offerLast(20);
+dq.push(30); // same as addFirst()
+dq.add(x);   // addLast(x)
+dq.offer(x);  // offerLast(x)
+
+dq.removeFirst(); // throws exception
+dq.pollFirst();   // returns null if empty
+dq.pop(); // same as removeFirst()
+dq.remove();  // removeFirst()
+dq.poll();    // pollFirst()
+dq.removeLast();
+dq.pollLast();
+```
+Peek (No Removal)
+```java
+dq.getFirst();  // throws exception
+dq.peekFirst(); // returns null if empty
+dq.peek();    // peekFirst()
+dq.getLast();
+dq.peekLast();
+```
+Check / Utility
+```java
+dq.isEmpty();
+dq.size();
+dq.contains(10);
+dq.clear();
 ```
 
 ## StringBuilder

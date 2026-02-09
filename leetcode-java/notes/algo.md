@@ -4,6 +4,8 @@
 - [Sorting](#sorting)
   - [Sorting Arrays](#sorting-arrays)
   - [Sorting a List](#sorting-a-list)
+- Tree
+  - [Inorder Traversal (BST Rule)](#inorder-traversal-bst-rule)
 
 ## Sorting
 ### Sorting Arrays
@@ -107,4 +109,38 @@ Collections.sort(people, (p1, p2) -> Integer.compare(p1.age, p2.age));
 
 // Sort by name (ascending)
 Collections.sort(people, (p1, p2) -> p1.name.compareTo(p2.name));
+```
+
+## Tree
+### Inorder Traversal (BST Rule)
+Recursive
+```java
+public void inorder(TreeNode root) {
+    if (root == null) return;
+
+    inorder(root.left);
+    System.out.print(root.val + " ");
+    inorder(root.right);
+}
+```
+Iterative (using stack)
+```java
+public List<Integer> inorderTraversal(TreeNode root) {
+    List<Integer> res = new ArrayList<>();
+    Stack<TreeNode> stack = new Stack<>();
+    TreeNode curr = root;
+
+    while (curr != null || !stack.isEmpty()) {
+        while (curr != null) {
+            stack.push(curr);
+            curr = curr.left;
+        }
+
+        curr = stack.pop();
+        res.add(curr.val);
+        curr = curr.right;
+    }
+
+    return res;
+}
 ```
