@@ -7,7 +7,9 @@
     - [Primitive Array (`int[]`)](#primitive-array-int)
     - [To Typed Array](#to-typed-array)
 - Map
-  - [HashMap](#hashmap)
+  - [Basic Operations](#basic-operations)
+  - [Iterating a Map](#iterating-a-map)
+  - [Sorting a Map](#sorting-a-map)
 - Set
   - [HashSet](#hashset)
 
@@ -84,12 +86,50 @@ Java provides several types of lists. Here are a few examples:
 - `CopyOnWriteArrayList` (thread-safe, often used in multithreading)
 
 ## Map
-### HashMap
 #### Initializing
 ```java
 Map<String, Integer> map = new HashMap<>();
-map.put("one", 1);         // Add key-value pair
-map.put("two", 2);
+```
+### Basic Operations
+```java
+map.put("a", 1);          // add / update
+map.get("a");             // returns 1
+map.remove("a");          // delete
+map.containsKey("a");     // true / false
+map.containsValue(1);     // true / false
+map.size();               // number of entries
+map.isEmpty();            // check empty
+map.clear();              // remove all
+```
+### Iterating a Map
+Entry set
+```java
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " = " + entry.getValue());
+}
+```
+Keys only
+```java
+for (String key : map.keySet()) {
+    System.out.println(key);
+}
+```
+Values only
+```java
+for (Integer value : map.values()) {
+    System.out.println(value);
+}
+```
+### Sorting a Map
+Sort by key (TreeMap)
+```java
+Map<String, Integer> sorted = new TreeMap<>(map);
+```
+Sort by value
+```java
+map.entrySet().stream()
+   .sorted(Map.Entry.comparingByValue())
+   .forEach(System.out::println);
 ```
 
 ## Set
